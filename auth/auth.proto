@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package auth;
+
+import "google/api/annotations.proto";
+import "web-api/dtypes/dtypes.proto";
+
+service Authentication {
+  rpc Signin(SigninRequest) returns (SigninResponse) {
+    option (google.api.http) = {
+      post : "/sgipc/api/auth/signin"
+      body : "*"
+    };
+  }
+
+  rpc Signout(SignoutRequest) returns (SignoutResponse) {
+    option (google.api.http) = {
+      post : "/sgipc/api/auth/signout"
+      body : "*"
+    };
+  }
+}
+
+message SigninRequest {
+  string name = 1;
+  string username = 2;
+  string password = 3;
+  string cf_username = 4;
+}
+
+message SigninResponse {
+  dtypes.Status status = 1;
+}
+
+message SignoutRequest {
+  string username = 1;
+  string password = 2;
+}
+
+message SignoutResponse {
+  dtypes.Status status = 1;
+}
