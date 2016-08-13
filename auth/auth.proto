@@ -22,10 +22,13 @@ service Authentication {
 }
 
 message SigninRequest {
-  string name = 1;
+  string roll = 1;
   string username = 2;
-  string password = 3;
-  string cf_username = 4;
+  string name = 3;
+  string password = 4;
+  string cf_username = 5;
+  string uva_username = 6;
+  string status = 7;
 }
 
 message SigninResponse {
