@@ -84,7 +84,19 @@
           "type": "string",
           "format": "string"
         },
+        "roll": {
+          "type": "string",
+          "format": "string"
+        },
+        "status": {
+          "type": "string",
+          "format": "string"
+        },
         "username": {
+          "type": "string",
+          "format": "string"
+        },
+        "uva_username": {
           "type": "string",
           "format": "string"
         }
