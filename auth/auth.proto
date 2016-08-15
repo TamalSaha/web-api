@@ -6,14 +6,21 @@ import "google/api/annotations.proto";
 import "web-api/dtypes/dtypes.proto";
 
 service Authentication {
-  rpc Signin(SigninRequest) returns (SigninResponse) {
+  rpc Signup(SignupRequest) returns (dtypes.VoidResponse) {
+    option (google.api.http) = {
+      post : "/sgipc/api/auth/signup"
+      body : "*"
+    };
+  }
+
+  rpc Signin(SigninRequest) returns (dtypes.VoidResponse) {
     option (google.api.http) = {
       post : "/sgipc/api/auth/signin"
       body : "*"
     };
   }
 
-  rpc Signout(SignoutRequest) returns (SignoutResponse) {
+  rpc Signout(dtypes.VoidResponse) returns (dtypes.VoidResponse) {
     option (google.api.http) = {
       post : "/sgipc/api/auth/signout"
       body : "*"
@@ -21,25 +28,18 @@ service Authentication {
   }
 }
 
-message SigninRequest {
+message SignupRequest {
   string roll = 1;
   string username = 2;
   string name = 3;
-  string password = 4;
-  string cf_username = 5;
-  string uva_username = 6;
-  string status = 7;
+  string mail = 4;
+  string password = 5;
+  string cf_username = 6;
+  string uva_username = 7;
+  string status = 8;
 }
 
-message SigninResponse {
-  dtypes.Status status = 1;
-}
-
-message SignoutRequest {
+message SigninRequest {
   string username = 1;
   string password = 2;
-}
-
-message SignoutResponse {
-  dtypes.Status status = 1;
 }
