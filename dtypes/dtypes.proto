@@ -5,29 +5,6 @@ package dtypes;
 
 import "google/api/annotations.proto";
 
-enum StatusCode {
-	// Similar to HTTP Status code 2**.
-	OK = 0;
-
-	FAILED = 1;
-
-	// operation. Similar to HTTP status code 401.
-	UNAUTHORIZED = 2;
-
-	// Similar to HTTP status code 400
-	BADREQUEST = 3;
-
-	// Similar to HTTP Status code 403
-	PERMISSION_DENIED = 4;
-
-	// Similar to HTTP status code 404
-	NOT_FOUND = 5;
-
-	// Similar to HTTP status code 500
-	UNKNOWN_ERROR = 6;
-}
-
-
 message Status {
 	// Response status code
 	string code = 1;
